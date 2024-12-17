@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Link WhatsApp</title>
+</head>
+<body>
+    <h1>Gerador de Link WhatsApp</h1>
+
+    <label for="ddd">DDD:</label>
+    <input type="text" id="ddd" placeholder="Ex: 65">
+    <br><br>
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" placeholder="Ex: 981331948">
+    <br><br>
+    <button onclick="gerarLink()">Gerar Link</button>
+
+    <p id="linkGerado"></p>
+
+    <script>
+        function gerarLink() {
+            const ddd = document.getElementById('ddd').value;
+            const telefone = document.getElementById('telefone').value;
+
+            if (ddd && telefone) {
+                const link = `https://api.whatsapp.com/send?phone=55${ddd}${telefone}`;
+                document.getElementById('linkGerado').innerHTML = `<a href="${link}" target="_blank">Abrir WhatsApp</a>`;
+            } else {
+                document.getElementById('linkGerado').innerHTML = "Por favor, insira o DDD e o telefone.";
+            }
+        }
+    </script>
+</body>
+</html>
